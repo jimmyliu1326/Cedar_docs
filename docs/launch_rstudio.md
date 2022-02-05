@@ -5,7 +5,7 @@
 module load python/3.6
 source $HOME/jupyter_py3/bin/activate
 module load nixpkgs/16.09 gcc/7.3.0 rstudio-server/1.2.1335
-salloc --time=12:0:0 --ntasks=1 --cpus-per-task=4 --mem-per-cpu=4G --account=rrg-whsiao-ab srun $VIRTUAL_ENV/bin/notebook.sh
+salloc --time=12:0:0 --ntasks=1 --cpus-per-task=16 --mem-per-cpu=2G --account=rrg-whsiao-ab srun $VIRTUAL_ENV/bin/notebook.sh
 ```
 
 ### Connect local to remote
