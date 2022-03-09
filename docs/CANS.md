@@ -5,6 +5,8 @@ The following commands will create an image called `cans_latest.sif` in your cur
 ```bash
 # launch an interactive session with sufficient memory
 salloc --time=2:0:0 --ntasks=1 --cpus-per-task=4 --mem-per-cpu=8G --account=your-account
+# load singularity into interactive session. As of 8 March2022 the latest version was 3.8
+module load singularity/3.8
 # pull image from Docker Hub
 singularity pull docker://jimmyliu1326/cans
 ```
