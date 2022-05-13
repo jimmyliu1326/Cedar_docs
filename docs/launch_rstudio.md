@@ -16,3 +16,8 @@ ssh -L 8888:<hostname:port> <username>@<cluster>.computecanada.ca
 
 ### Launch RStudio in browser
 Open any browser and navigate to `http://localhost:8888/?token=<token>`
+
+### Attach terminal to a running job
+```
+srun --pty --jobid $JOBID -w $NODEID /bin/bash
+```
