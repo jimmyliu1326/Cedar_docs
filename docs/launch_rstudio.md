@@ -3,6 +3,7 @@
 ### Activate dependencies for R >= 4.1.*
 ```
 module load rstudio-server python
+module load r/4.1.2
 module load StdEnv/2020  intel/2020.1.217 proj4-fortran
 source $HOME/jupyter_py3/bin/activate
 salloc --time=12:0:0 --ntasks=1 --cpus-per-task=16 --mem-per-cpu=2G --account=rrg-whsiao-ab srun $VIRTUAL_ENV/bin/jupyterlab.sh
