@@ -51,7 +51,7 @@ screen
 # request an interactive session
 salloc --time=2:0:0 --cpus-per-task=16 --mem=16G --account=group-account
 # run SamnSero
-nextflow run jimmyliu1326/SamnSero_Nextflow -r v1.6.8 --input samples.csv --outdir out --qc --annot --centrifuge /path/to/centrifuge_db/ --account group-account -profile slurm
+nextflow run jimmyliu1326/SamnSero_Nextflow -latest --input samples.csv --out_dir out --qc --annot --centrifuge /path/to/centrifuge_db/ --account group-account -profile slurm
 ```
 
 **Method 2:** Submit pipeline run to Slurm in a single command
@@ -59,7 +59,7 @@ nextflow run jimmyliu1326/SamnSero_Nextflow -r v1.6.8 --input samples.csv --outd
 sbatch --error samnsero.error --output samnsero.out \
     --mem 16G --cpus-per-task 4 --time 2:0:0 \
     --wrap "nextflow run jimmyliu1326/SamnSero_Nextflow \
-    -r v1.6.8 --input samples.csv --outdir out --qc --annot --centrifuge /path/to/centrifuge_db/ --account group-account -profile slurm"
+    -latest --input samples.csv --out_dir out --qc --annot --centrifuge /path/to/centrifuge_db/ --account group-account -profile slurm"
 ```
 
 **Method 3:** Submit pipeline run to Slurm in a script
@@ -74,10 +74,11 @@ Prepare a bash script and save it as `Run_SamnSero.sh`:
 #SBATCH --error=%x.error
 #SBATCH --output=%x.out
 
+module load nextflow apptainer
 nextflow run jimmyliu1326/SamnSero_Nextflow \
-    -r [version] \
+    -latest \
     --input /path/to/samples.csv \
-    --outdir /path/to/out \
+    --out_dir /path/to/out \
     --qc \
     --annot \
     --centrifuge /path/to/centrifuge_db/ \
